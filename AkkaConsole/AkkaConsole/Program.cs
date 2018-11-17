@@ -7,7 +7,7 @@ using AkkaConsole.ValueObj;
 
 namespace AkkaConsole {
     internal class Program {
-        private static void Main(string[] args)
+        private static void Main()
         {
             var operatorActorManager = new OperatorActorManager("OperatorActorPool");
             var operatorActorRouter = operatorActorManager.GetRouterInstance();
