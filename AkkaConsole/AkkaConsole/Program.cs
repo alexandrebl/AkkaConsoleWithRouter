@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading;
 using Akka.Actor;
-using Akka.Routing;
-using AkkaConsole.Actros;
 using AkkaConsole.Domain;
 using AkkaConsole.Library;
 using AkkaConsole.ValueObj;
