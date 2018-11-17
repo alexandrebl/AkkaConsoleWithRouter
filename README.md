@@ -1,0 +1,2 @@
+# AkkaConsole
+Akka .Net Console
