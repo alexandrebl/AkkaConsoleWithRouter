@@ -9,7 +9,7 @@ namespace AkkaConsole.Actros {
         {
             Receive<Data>(message =>
             {
-                Console.WriteLine($"Sum: A - {message.ValueA} / B - {message.ValueB} / Result: {message.ValueA + message.ValueB}");
+                Console.WriteLine($"Sum: A - {message.ValueA} / B - {message.ValueB} / Result: {message.ValueA + message.ValueB} / Path: {this.Self.Path}");
             });
         }
 

@@ -2,16 +2,20 @@
 using Akka.Actor;
 using AkkaConsole.Domain;
 
-namespace AkkaConsole.Actros {
-    public class AvgActor : ReceiveActor {
+namespace AkkaConsole.Actros
+{
+    public class AvgActor : ReceiveActor
+    {
         public AvgActor()
         {
-            Receive<Data>(message => {
-                Console.WriteLine($"Avg: A - {message.ValueA} / B - {message.ValueB} / Result: {(message.ValueA + message.ValueB) / 2}");
+            Receive<Data>(message =>
+            {
+                Console.WriteLine($"Avg: A - {message.ValueA} / B - {message.ValueB} / Result: {(message.ValueA + message.ValueB) / 2} / Path: {this.Self.Path}");
             });
         }
 
-        public static Props Props() {
+        public static Props Props()
+        {
             return Akka.Actor.Props.Create(() => new AvgActor());
         }
     }
