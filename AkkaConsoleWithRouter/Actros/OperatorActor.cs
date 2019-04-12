@@ -26,7 +26,7 @@ namespace AkkaConsole.Actros {
 
                 printActor.Tell(new PrintData
                 {
-                    Message = $"Operator path: {Self.Path}",
+                    Message = $"Operation type: {message.ActionType}",
                     ConsoleColor = ConsoleColor.Yellow
                 });
 
