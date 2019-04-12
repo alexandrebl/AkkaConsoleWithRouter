@@ -3,6 +3,7 @@ using Akka.Actor;
 using AkkaConsole.Domain;
 using AkkaConsole.Library;
 using AkkaConsoleWithrouter.Actros.Support;
+using AkkaConsoleWithrouter.Domain;
 
 namespace AkkaConsole.Actros {
     public class SumActor: ReceiveActor {
@@ -15,7 +16,11 @@ namespace AkkaConsole.Actros {
 
                 var printActor = Context.ActorSelection($"/user/{nameof(PrinterActor)}");
 
-                printActor.Tell( $"Sum result: {result}");
+                printActor.Tell(new PrintData
+                {
+                    Message = $"Sum result: {result}",
+                    ConsoleColor = ConsoleColor.Cyan
+                });
             });
         }
     }

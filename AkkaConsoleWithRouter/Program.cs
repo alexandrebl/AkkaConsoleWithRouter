@@ -33,7 +33,6 @@ namespace AkkaConsole {
                 });
 
                 Thread.Sleep(10000);
-                Console.WriteLine("-------------------------------------------------------");
             }
         }
     }

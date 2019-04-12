@@ -2,6 +2,7 @@
 using Akka.Actor;
 using AkkaConsole.Domain;
 using AkkaConsoleWithrouter.Actros.Support;
+using AkkaConsoleWithrouter.Domain;
 
 namespace AkkaConsole.Actros
 {
@@ -15,7 +16,11 @@ namespace AkkaConsole.Actros
 
                 var printActor =  Context.ActorOf(Props.Create(() => new PrinterActor()));
 
-                printActor.Tell($"Avg result: {result}");
+                printActor.Tell(new PrintData
+                {
+                    Message = $"Avg result: {result}",
+                    ConsoleColor = ConsoleColor.Cyan
+                });
             });
         }
     }

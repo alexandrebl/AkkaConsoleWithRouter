@@ -10,7 +10,7 @@ namespace AkkaConsole.Library {
         
 
         private readonly IActorRef _actorRouter;
-        public OperatorActorManager(string poolName, ActorSystem actorSystem, int poolSize = 20)
+        public OperatorActorManager(string poolName, ActorSystem actorSystem, int poolSize = 3)
         {
             _actorRouter = actorSystem.ActorOf(Props.Create<OperatorActor>().WithRouter(new RoundRobinPool(poolSize)), poolName);
         }
