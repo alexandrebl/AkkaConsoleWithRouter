@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaConsole", "AkkaConsole\AkkaConsole.csproj", "{1417E331-B77B-49CE-9778-03C94AED3765}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaConsole", "AkkaConsoleWithRouter\AkkaConsoleWithrouter.csproj", "{1417E331-B77B-49CE-9778-03C94AED3765}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,15 +4,20 @@ using Akka.Actor;
 using AkkaConsole.Domain;
 using AkkaConsole.Library;
 using AkkaConsole.ValueObj;
+using AkkaConsoleWithrouter.Actros.Support;
 
 namespace AkkaConsole {
     internal class Program {
         private static void Main()
         {
-            var operatorActorManager = new OperatorActorManager("OperatorActorPool");
+            var rootActorSystem = ActorSystem.Create($"{nameof(OperatorActorManager)}");
+
+            var operatorActorManager = new OperatorActorManager("OperatorActorPool", rootActorSystem);
             var operatorActorRouter = operatorActorManager.GetRouterInstance();
 
-            var random = new Random(DateTime.UtcNow.Millisecond);
+            rootActorSystem.ActorOf(Props.Create(() => new PrinterActor()), nameof(PrinterActor));
+
+            var random = new Random(DateTime.UtcNow.Millisecond);            
 
             while (true) {
                 operatorActorRouter.Tell(new RequestData {
