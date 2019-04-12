@@ -27,13 +27,7 @@ namespace AkkaConsole {
                     ValueB = random.Next(0, 100)
                 });
 
-                operatorActorRouter.Tell(new RequestData {
-                    ActionType = ActionType.Sum,
-                    ValueA = random.Next(0, 100),
-                    ValueB = random.Next(0, 100)
-                });
-
-                Thread.Sleep(1000);
+                Thread.Sleep(10000);
                 Console.WriteLine("-------------------------------------------------------");
             }
         }
