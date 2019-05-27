@@ -16,11 +16,7 @@ namespace AkkaConsole.Actros
 
                 var printActor =  Context.ActorOf(Props.Create(() => new PrinterActor()));
 
-                printActor.Tell(new PrintData
-                {
-                    Message = $"Avg result: {result}",
-                    ConsoleColor = ConsoleColor.Cyan
-                });
+                printActor.Tell(new PrintData($"Avg result: {result}", ConsoleColor.Cyan));
             });
         }
     }

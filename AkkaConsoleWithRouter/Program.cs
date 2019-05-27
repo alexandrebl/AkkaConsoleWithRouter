@@ -20,19 +20,13 @@ namespace AkkaConsole {
             var random = new Random(DateTime.UtcNow.Millisecond);            
 
             while (true) {
-                operatorActorRouter.Tell(new RequestData {
-                    ActionType = ActionType.Avg,
-                    ValueA = random.Next(0, 100),
-                    ValueB = random.Next(0, 100)
-                });
+                operatorActorRouter.Tell(new RequestData(
+                    ActionType.Avg, random.Next(0, 100), random.Next(0, 100)));
 
-                operatorActorRouter.Tell(new RequestData {
-                    ActionType = ActionType.Sum,
-                    ValueA = random.Next(0, 100),
-                    ValueB = random.Next(0, 100)
-                });
+                operatorActorRouter.Tell(new RequestData(
+                    ActionType.Sum, random.Next(0, 100), random.Next(0, 100)));
 
-                Thread.Sleep(10000);
+                Thread.Sleep(4000);
             }
         }
     }

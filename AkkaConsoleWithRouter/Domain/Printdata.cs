@@ -6,7 +6,13 @@ namespace AkkaConsoleWithrouter.Domain
 {
     public class PrintData
     {
-        public string Message { get; set; }
-        public ConsoleColor ConsoleColor { get; set; }
+        public string Message { get; }
+        public ConsoleColor ConsoleColor { get; }
+
+        public PrintData(string messagem, ConsoleColor consoleColor)
+        {
+            Message = messagem;
+            ConsoleColor = consoleColor;
+        }
     }
 }

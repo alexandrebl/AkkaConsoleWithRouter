@@ -16,21 +16,11 @@ namespace AkkaConsole.Actros {
             Receive<RequestData>(message => {
                 var actor = actorFactory.GetInstance(message.ActionType);
 
-                var data = new Data()
-                {
-                    ValueA = message.ValueA,
-                    ValueB = message.ValueB
-                };
+                var data = new Data(message.ValueA,message.ValueB);
 
                 var printActor = Context.ActorSelection($"/user/{nameof(PrinterActor)}");
 
-                printActor.Tell(new PrintData
-                {
-                    Message = $"Operation type: {message.ActionType}",
-                    ConsoleColor = ConsoleColor.Yellow
-                });
-
-                actor.Tell(data);
+                printActor.Tell(new PrintData($"Operation type: {message.ActionType}", ConsoleColor.Yellow));
             });
         }
     }

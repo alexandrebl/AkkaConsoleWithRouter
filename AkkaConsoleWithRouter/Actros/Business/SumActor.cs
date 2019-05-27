@@ -16,11 +16,7 @@ namespace AkkaConsole.Actros {
 
                 var printActor = Context.ActorSelection($"/user/{nameof(PrinterActor)}");
 
-                printActor.Tell(new PrintData
-                {
-                    Message = $"Sum result: {result}",
-                    ConsoleColor = ConsoleColor.Cyan
-                });
+                printActor.Tell(new PrintData($"Sum result: {result}", ConsoleColor.Cyan));
             });
         }
     }
