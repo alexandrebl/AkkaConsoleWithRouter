@@ -18,9 +18,7 @@ namespace AkkaConsole.Actros {
 
                 var data = new Data(message.ValueA,message.ValueB);
 
-                var printActor = Context.ActorSelection($"/user/{nameof(PrinterActor)}");
-
-                printActor.Tell(new PrintData($"Operation type: {message.ActionType}", ConsoleColor.Yellow));
+                actor.Tell(data);
             });
         }
     }

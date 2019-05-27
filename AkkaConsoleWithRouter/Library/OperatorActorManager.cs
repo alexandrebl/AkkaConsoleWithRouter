@@ -7,8 +7,6 @@ using AkkaConsole.Library.Interface;
 namespace AkkaConsole.Library {
     public sealed class OperatorActorManager : IActorManager {
 
-        
-
         private readonly IActorRef _actorRouter;
         public OperatorActorManager(string poolName, ActorSystem actorSystem, int poolSize = 3)
         {
